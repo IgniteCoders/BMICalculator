@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BMICalculator</string>
+
+    <string name="main_activity_click_button">Pulsame</string>
+    <string name="main_activity_welcome_text">Bienvenido a mi primera aplicación</string>
+    <string name="main_activity_click_text">He hecho click en el botón</string>
+</resources>
