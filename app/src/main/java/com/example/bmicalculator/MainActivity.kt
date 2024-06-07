@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import java.text.DecimalFormat
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
@@ -49,8 +50,34 @@ class MainActivity : AppCompatActivity() {
             height = heightEditText.text.toString().toInt()
 
             val result = weight / (height / 100f).pow(2)
+            val decimalFormat = DecimalFormat("#.##")
 
-            resultTextView.text = result.toString()
+            val description: String?
+            val descriptionColor: Int?
+
+            when (result) {
+                in 0f..18.5f -> {
+                    description = getString(R.string.under_weight)
+                    descriptionColor = getColor(R.color.under_weight)
+                }
+                in 18.5f..25f -> {
+                    description = getString(R.string.normal_weight)
+                    descriptionColor = getColor(R.color.normal_weight)
+                }
+                in 25f..30f -> {
+                    description = getString(R.string.over_weight)
+                    descriptionColor = getColor(R.color.over_weight)
+                }
+                else -> {
+                    description = getString(R.string.obesity)
+                    descriptionColor = getColor(R.color.obesity)
+                }
+            }
+
+            resultTextView.text = decimalFormat.format(result)
+            resultTextView.setTextColor(descriptionColor)
+            descriptionTextView.text = description
+            descriptionTextView.setTextColor(descriptionColor)
         }
     }
 

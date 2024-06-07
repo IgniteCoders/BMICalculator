@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">BMICalculator</string>
 
-    <string name="main_activity_click_button">Click me</string>
-    <string name="main_activity_welcome_text">Welcome to my first App</string>
-    <string name="main_activity_click_text">I clicked the button</string>
+    <string name="under_weight">Bajo peso</string>
+    <string name="normal_weight">Peso saludable</string>
+    <string name="over_weight">Sobrepeso</string>
+    <string name="obesity">Obesidad</string>
 </resources>
