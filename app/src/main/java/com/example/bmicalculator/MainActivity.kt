@@ -5,27 +5,34 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.google.android.material.slider.Slider
 import java.text.DecimalFormat
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var heightEditText: EditText
+    // Altura
+    lateinit var heightTextView: TextView
+    lateinit var heightSlider: Slider
+    // Peso
     lateinit var weightTextView: TextView
     lateinit var minusButton: Button
     lateinit var addButton: Button
+    // Resultado
     lateinit var descriptionTextView: TextView
     lateinit var resultTextView: TextView
+
     lateinit var calculateButton: Button
 
-    var height: Int = 150
-    var weight: Int = 70
+    var height: Int = 180
+    var weight: Int = 82
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        heightEditText = findViewById(R.id.heightEditText)
+        heightTextView = findViewById(R.id.heightTextView)
+        heightSlider = findViewById(R.id.heightSlider)
         weightTextView = findViewById(R.id.weightTextView)
         minusButton = findViewById(R.id.minusButton)
         addButton = findViewById(R.id.addButton)
@@ -33,8 +40,14 @@ class MainActivity : AppCompatActivity() {
         resultTextView = findViewById(R.id.resultTextView)
         calculateButton = findViewById(R.id.calculateButton)
 
+        heightSlider.value = height.toFloat()
         setHeight()
         setWeight()
+
+        heightSlider.addOnChangeListener { _, value, _ ->
+            height = value.toInt()
+            setHeight()
+        }
 
         minusButton.setOnClickListener {
             weight --
@@ -47,8 +60,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         calculateButton.setOnClickListener {
-            height = heightEditText.text.toString().toInt()
-
             val result = weight / (height / 100f).pow(2)
             val decimalFormat = DecimalFormat("#.##")
 
@@ -82,7 +93,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setHeight() {
-        heightEditText.setText(height.toString())
+        heightTextView.text = "$height cm"
     }
 
     fun setWeight() {
