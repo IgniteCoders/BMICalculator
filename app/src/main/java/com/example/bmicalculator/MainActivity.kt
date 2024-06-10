@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportActionBar?.title = getString(R.string.title)
+
         heightTextView = findViewById(R.id.heightTextView)
         heightSlider = findViewById(R.id.heightSlider)
         weightTextView = findViewById(R.id.weightTextView)
