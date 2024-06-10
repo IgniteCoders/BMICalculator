@@ -20,7 +20,7 @@
             android:id="@+id/heightTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="0 cm"
+            android:text="@string/height_text"
             android:textAlignment="center"
             android:textSize="24sp"/>
 
@@ -57,7 +57,7 @@
             android:id="@+id/weightTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="0 Kg"
+            android:text="@string/weight_text"
             android:textSize="24sp"
             android:textAlignment="center"
             android:layout_weight="1"/>
@@ -92,7 +92,7 @@
         android:id="@+id/calculateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calcular"
+        android:text="@string/calculate_button"
         android:layout_gravity="center_horizontal"/>
 
 

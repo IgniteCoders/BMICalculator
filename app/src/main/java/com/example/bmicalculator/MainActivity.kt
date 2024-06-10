@@ -93,10 +93,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setHeight() {
-        heightTextView.text = "$height cm"
+        heightTextView.text = getString(R.string.height_text, height)
     }
 
     fun setWeight() {
-        weightTextView.text = "$weight Kg"
+        weightTextView.text = getString(R.string.weight_text, weight)
     }
 }
